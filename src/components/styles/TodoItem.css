@@ -1,0 +1,11 @@
+.todoitem-wrapper {
+  border: 2px solid black;
+  width: 100%;
+}
+
+.todoitem-title {
+  color: black;
+  padding: 5px;
+  font-size: 15px;
+  font-weight: 400;
+}
