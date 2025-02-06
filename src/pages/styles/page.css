@@ -1,0 +1,44 @@
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 95%;
+  padding: 20px 10px;
+}
+
+.page-title {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  column-gap: 5px;
+}
+
+.backbutton-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.todoitemlist-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.todomain-buttons-wrapper,
+.todoadd-buttons-wrapper,
+.tododetail-buttons-wrapper {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.tododetail-buttons-wrapper > button {
+  margin-bottom: 10px;
+}
