@@ -14,6 +14,11 @@ export default function TodoAddPage() {
     setTodo(data);
     console.log(data);
   };
+
+  const onClickBack = () => {
+    navigate("/");
+  };
+
   const onClickSubmit = () => {
     console.log("clicked");
     // 1. 기존 데이터를 가져와서 배열로 변환
@@ -31,7 +36,12 @@ export default function TodoAddPage() {
   return (
     <div className="page-wrapper">
       <div className="backbutton-wrapper">
-        <Button label={"back"} size={"sm"} type={"normal"}></Button>
+        <Button
+          onClickButton={onClickBack}
+          label={"back"}
+          size={"sm"}
+          type={"normal"}
+        ></Button>
       </div>
       <div className="page-title">
         <h2>Todo Add</h2>

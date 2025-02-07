@@ -3,12 +3,23 @@ import Button from "../components/Button";
 import FormInput from "../components/FormInput";
 import TodoStatus from "../components/TodoStatus";
 import "./styles/page.css";
+import { useNavigate } from "react-router-dom";
 
 export default function TodoDetailPage() {
+  const navigate = useNavigate();
+  const onClickBack = () => {
+    navigate("/");
+  };
+
   return (
     <div className="page-wrapper">
       <div className="backbutton-wrapper">
-        <Button label={"back"} size={"sm"} type={"normal"}></Button>
+        <Button
+          onClickButton={onClickBack}
+          label={"back"}
+          size={"sm"}
+          type={"normal"}
+        ></Button>
       </div>
       <div className="page-title">
         <h2>Todo Detail</h2>

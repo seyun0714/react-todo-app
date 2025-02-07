@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import TabMenu from "../components/TabMenu";
 import TodoItem from "../components/TodoItem";
 import Button from "../components/Button";
@@ -7,8 +7,18 @@ import { useNavigate } from "react-router-dom";
 
 export default function MainPage() {
   const navigate = useNavigate();
-  const savedData = localStorage.getItem("todo-list") || "[]";
-  const parsedData = JSON.parse(savedData);
+  const [todoList, setTodoList] = useState([]);
+
+  const initRender = () => {
+    const savedData = localStorage.getItem("todo-list") || "[]";
+    const parsedData = JSON.parse(savedData);
+    setTodoList(parsedData);
+  };
+
+  useEffect(() => {
+    initRender();
+  }, []);
+
   const onClickAdd = () => {
     navigate("/add");
   };
@@ -19,8 +29,13 @@ export default function MainPage() {
         <h2>Todo List</h2>
       </div>
       <div className="todoitemlist-wrapper">
-        {parsedData.map((data) => {
-          return <TodoItem title={data.title} key={data.title}></TodoItem>;
+        {todoList.map((data, index) => {
+          return (
+            <TodoItem
+              title={data.title}
+              key={`todolist-key-${index}`}
+            ></TodoItem>
+          );
         })}
       </div>
       <div className="todomain-buttons-wrapper">

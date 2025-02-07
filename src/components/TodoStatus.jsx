@@ -10,7 +10,7 @@ export default function TodoStatus({ type }) {
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           width={30}
-          stroke="red"
+          stroke="crimson"
           className="size-6"
         >
           <path

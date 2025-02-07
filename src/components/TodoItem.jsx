@@ -4,7 +4,7 @@ import "./styles/TodoItem.css";
 export default function TodoItem({ title }) {
   return (
     <div className="todoitem-wrapper">
-      <div className="todoitme-title">{title}</div>
+      <div className="todoitem-title">{title}</div>
     </div>
   );
 }
