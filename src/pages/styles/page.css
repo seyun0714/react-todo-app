@@ -27,7 +27,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  width: 99%;
+  height: 30dvh;
+  padding: 2px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  white-space: nowrap;
+}
+
+.todoitem-main-wrapper {
   width: 100%;
 }
 

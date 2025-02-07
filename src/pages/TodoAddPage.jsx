@@ -26,7 +26,7 @@ export default function TodoAddPage() {
     // 3. 배열을 stringify하여 localstorage에 저장
     const savedData = localStorage.getItem("todo-list") || "[]";
     const parsedData = JSON.parse(savedData);
-    parsedData.unshift(todo);
+    parsedData.unshift({ ...todo, isDone: false, id: new Date().getTime() });
     localStorage.setItem("todo-list", JSON.stringify(parsedData));
 
     // main page로 이동
@@ -50,7 +50,7 @@ export default function TodoAddPage() {
       <div className="todoadd-buttons-wrapper">
         <Button
           onClickButton={onClickSubmit}
-          label={"submit"}
+          label={"Submit"}
           size={"lg"}
           type={"primary"}
         ></Button>

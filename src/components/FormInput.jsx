@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import "./styles/FormInput.css";
 
-export default function FormInput({ onChangeTodoState }) {
+export default function FormInput({ onChangeTodoState, editData = {} }) {
   const [todoState, setTodoState] = useState({
-    title: "",
-    content: "",
+    title: editData.title || "",
+    content: editData.content || "",
   });
-  const [input, setInput] = useState("");
-  const [content, setContent] = useState("");
+  const [input, setInput] = useState(editData.title || "");
+  const [content, setContent] = useState(editData.content || "");
 
   const handleChangeInput = (e) => {
     const inputValue = e.target.value;

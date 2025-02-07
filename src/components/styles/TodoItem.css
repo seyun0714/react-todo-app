@@ -1,4 +1,8 @@
 .todoitem-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
   border: 1px solid silver;
   border-radius: 4px;
   width: 100%;
@@ -9,9 +13,35 @@
   border-color: black;
 }
 
+.todoitem-checkbox {
+  transform: scale(1.5);
+  margin-left: 7px;
+}
+
+.todoitem-checkbox:checked + .todoitem-title {
+  color: silver;
+  text-decoration: line-through;
+}
 .todoitem-title {
   color: black;
   padding: 5px;
   font-size: 16px;
   font-weight: 500;
+}
+
+.todoitem-delete-wrapper {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 5px;
+  width: 20px;
+}
+
+.todoitem-delete-wrapper > svg > path {
+  color: silver;
+}
+
+.todoitem-delete-wrapper > svg:hover > path {
+  color: black;
+  stroke-width: 2.5px;
 }

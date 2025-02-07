@@ -4,6 +4,7 @@ import Layout from "./components/Layout.jsx";
 import MainPage from "./pages/MainPage.jsx";
 import TodoAddPage from "./pages/TodoAddPage.jsx";
 import TodoDetailPage from "./pages/TodoDetailPage.jsx";
+import "./index.css";
 
 const router = createBrowserRouter([
   {
@@ -19,7 +20,7 @@ const router = createBrowserRouter([
         element: <TodoAddPage />,
       },
       {
-        path: "/detail",
+        path: "/detail/:id",
         element: <TodoDetailPage />,
       },
     ],

@@ -4,6 +4,10 @@
   color: white;
 }
 
+.todo-button:hover {
+  filter: brightness(0.9);
+}
+
 .todo-button.sm {
   width: 40px;
   font-size: 13px;

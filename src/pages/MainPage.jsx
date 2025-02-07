@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function MainPage() {
   const navigate = useNavigate();
+  const [tab, setTab] = useState("todo");
   const [todoList, setTodoList] = useState([]);
 
   const initRender = () => {
@@ -15,28 +16,63 @@ export default function MainPage() {
     setTodoList(parsedData);
   };
 
+  const onChangeTab = (menu) => {
+    setTab(menu);
+  };
+
   useEffect(() => {
     initRender();
-  }, []);
+  }, [tab]);
 
   const onClickAdd = () => {
     navigate("/add");
   };
+
+  const handleClickTodoItem = (id) => {
+    navigate(`/detail/${id}`);
+  };
+
   return (
     <div className="page-wrapper">
-      <TabMenu></TabMenu>
+      <TabMenu onChangeTab={onChangeTab}></TabMenu>
       <div className="page-title">
-        <h2>Todo List</h2>
+        <h2>{tab === "todo" ? `Todo List` : `Done List`}</h2>
       </div>
       <div className="todoitemlist-wrapper">
-        {todoList.map((data, index) => {
-          return (
-            <TodoItem
-              title={data.title}
-              key={`todolist-key-${index}`}
-            ></TodoItem>
-          );
-        })}
+        {tab === "todo"
+          ? todoList
+              .filter((todo) => todo.isDone === false)
+              .map((todo, index) => (
+                <div
+                  className="todoitem-main-wrapper"
+                  key={`todolist-key-${index}`}
+                  onClick={() => handleClickTodoItem(todo.id)}
+                >
+                  <TodoItem
+                    title={todo.title}
+                    id={todo.id}
+                    key={todo.id}
+                    isDone={todo.isDone}
+                    setTodoList={setTodoList}
+                  />
+                </div>
+              ))
+          : todoList
+              .filter((todo) => todo.isDone === true)
+              .map((todo, index) => (
+                <div
+                  className="todoitem-main-wrapper"
+                  key={`todolist-key-${index}`}
+                  onClick={() => handleClickTodoItem(todo.id)}
+                >
+                  <TodoItem
+                    title={todo.title}
+                    id={todo.id}
+                    isDone={todo.isDone}
+                    setTodoList={setTodoList}
+                  />
+                </div>
+              ))}
       </div>
       <div className="todomain-buttons-wrapper">
         <Button
